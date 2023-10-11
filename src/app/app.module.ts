@@ -7,6 +7,8 @@ import { LoginComponent } from './component/login/login.component';
 import { HomeComponent } from './component/home/home.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ContactComponent } from './component/contact/contact.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
