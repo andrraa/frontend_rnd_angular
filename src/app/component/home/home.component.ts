@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   newData: any = {};
   number: number = 1;
   isAddingData: boolean = true;
-  searchId: number = 0;
+  searchId: any = null;
   searchResult: any;
   isSearching: boolean = false;
 
@@ -43,6 +43,12 @@ export class HomeComponent implements OnInit {
     this.service.getAllEmployee().subscribe((response) => {
       this.dataEmployee = response;
     })
+  }
+
+  cleatData() {
+    this.isSearching = false;
+    this.searchId = null;
+    this.loadEmployee();
   }
 
   deleteEmployee(id: number) {

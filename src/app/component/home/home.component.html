@@ -1,80 +1,86 @@
-<div class="container mx-auto p-6">
-   <h1 class="font-bold text-3xl mb-8 text-center underline">WEL Employee List</h1>
 
-   <button class="bg-blue-700 py-2 px-4 text-white font-bold rounded-lg mb-4" (click)="ToggleFormOn()">Tambah Data</button>
-
-   <form (ngSubmit)="searchEmployee()">
-      <label for="id">Search Employee by Id:</label>
-      <input type="text" id="id" name="id" [(ngModel)]="searchId" required>
-      <button type="submit" class="bg-blue-700 py-2 px-4 text-white fotn-bold rounded">Cari</button>
-   </form>
-
-   <div class="p-6 bg-white border border-gray-200 rounded-lg shadow mb-4" *ngIf="isToggleOn">
-      <form (ngSubmit)="AddEmployee()">
-         <div class="grid md:grid-cols-2 md:gap-6">
-            <div class="relative z-0 w-full mb-6 group">
-               <input type="text" name="nama" id="nama"
-                  class="block py-2.5 px-0 w-full text-sm  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" " required [(ngModel)]="newData.nama" />
-               <label for="nama"
-                  class="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nama</label>
-            </div>
-            <div class="relative z-0 w-full mb-6 group">
-               <input type="text" name="npp" id="npp"
-                  class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" " required [(ngModel)]="newData.npp" />
-               <label for="npp"
-                  class="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">NPP</label>
-            </div>
-         </div>
-         <div class="grid md:grid-cols-2 md:gap-6">
-            <div class="relative z-0 w-full mb-6 group">
-               <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="divisi" id="divisi"
-                  class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" " required [(ngModel)]="newData.divisi" />
-               <label for="divisi"
-                  class="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Divisi</label>
-            </div>
-            <div class="relative z-0 w-full mb-6 group">
-               <input type="text" name="kelompok" id="kelompok"
-                  class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" " required [(ngModel)]="newData.kelompok" />
-               <label for="kelompok"
-                  class="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Kelompok</label>
-            </div>
-         </div>
-         <button type="submit"
-            class="text-white font-bold bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
-            <button class="text-white font-bold bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 ml-2" (click)="ToggleFormOff()">Close</button>
+   <div class="container mx-auto p-6">
+      <h1 class="font-bold text-3xl mb-8 text-center underline">WEL Employee List</h1>
+   
+      <button class="bg-blue-700 py-2 px-4 text-white font-bold rounded-lg mb-4" (click)="ToggleFormOn()">Tambah
+         Data</button>
+   
+      <form (ngSubmit)="searchEmployee()" class="mb-4">
+         <label for="id" class="mr-2 ">Search Employee by Id:</label>
+         <input type="text" id="id" name="id" [(ngModel)]="searchId" required class="border rounded p-2 mr-2">
+         <button type="submit" class="bg-blue-700 py-2 px-4 text-white font-bold rounded mr-2">Cari</button>
+         <button class="bg-red-700 py-2 px-4 tex-white font-bold text-white rounded" (click)="cleatData()">Clear</button>
       </form>
+   
+      <div class="p-6 bg-white border border-gray-200 rounded-lg shadow mb-4" *ngIf="isToggleOn">
+         <form (ngSubmit)="AddEmployee()">
+            <div class="grid md:grid-cols-2 md:gap-6">
+               <div class="relative z-0 w-full mb-6 group">
+                  <input type="text" name="nama" id="nama"
+                     class="block py-2.5 px-0 w-full text-sm  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                     placeholder=" " required [(ngModel)]="newData.nama" />
+                  <label for="nama"
+                     class="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nama</label>
+               </div>
+               <div class="relative z-0 w-full mb-6 group">
+                  <input type="text" name="npp" id="npp"
+                     class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                     placeholder=" " required [(ngModel)]="newData.npp" />
+                  <label for="npp"
+                     class="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">NPP</label>
+               </div>
+            </div>
+            <div class="grid md:grid-cols-2 md:gap-6">
+               <div class="relative z-0 w-full mb-6 group">
+                  <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="divisi" id="divisi"
+                     class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                     placeholder=" " required [(ngModel)]="newData.divisi" />
+                  <label for="divisi"
+                     class="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Divisi</label>
+               </div>
+               <div class="relative z-0 w-full mb-6 group">
+                  <input type="text" name="kelompok" id="kelompok"
+                     class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                     placeholder=" " required [(ngModel)]="newData.kelompok" />
+                  <label for="kelompok"
+                     class="peer-focus:font-medium absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Kelompok</label>
+               </div>
+            </div>
+            <button type="submit"
+               class="text-white font-bold bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
+            <button
+               class="text-white font-bold bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 ml-2"
+               (click)="ToggleFormOff()">Close</button>
+         </form>
+      </div>
+   
+      <div class="p-6 bg-white border border-gray-200 rounded-lg shadow">
+         <table class="table-auto w-full">
+            <thead>
+               <tr>
+                  <th>No.</th>
+                  <th>Nama</th>
+                  <th>NPP</th>
+                  <th>Divisi</th>
+                  <th>Kelompok</th>
+                  <th>Aksi</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let item of (isSearching ? [searchResult] : dataEmployee); let i = index;">
+                  <td class="text-center border px-4 py-2 font-semibold">{{ number + i }}</td>
+                  <td class="text-center border px-4 py-2 font-semibold">{{ item.nama }}</td>
+                  <td class="text-center border px-4 py-2 font-semibold">{{ item.npp }}</td>
+                  <td class="text-center border px-4 py-2 font-semibold">{{ item.divisi }}</td>
+                  <td class="text-center border px-4 py-2 font-semibold">{{ item.kelompok }}</td>
+                  <td class="text-center border px-4 py-2 font-semibold">
+                     <button class="bg-blue-700 py-2 px-4 text-white rounded-lg font-bold"
+                        (click)="editEmployee(item)">Edit</button>
+                     <button class="bg-red-700 py-2 px-4 text-white rounded-lg font-bold ml-2"
+                        (click)="deleteEmployee(item.id)">Delete</button>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
    </div>
-
-   <div class="p-6 bg-white border border-gray-200 rounded-lg shadow">
-      <table class="table-auto w-full">
-         <thead>
-            <tr>
-               <th>No.</th>
-               <th>Nama</th>
-               <th>NPP</th>
-               <th>Divisi</th>
-               <th>Kelompok</th>
-               <th>Aksi</th>
-            </tr>
-         </thead>
-         <tbody>
-         <tr *ngFor="let item of (isSearching ? [searchResult] : dataEmployee); let i = index;">
-            <td class="text-center border px-4 py-2 font-semibold">{{ number + i }}</td>
-            <td class="text-center border px-4 py-2 font-semibold">{{ item.nama }}</td>
-            <td class="text-center border px-4 py-2 font-semibold">{{ item.npp }}</td>
-            <td class="text-center border px-4 py-2 font-semibold">{{ item.divisi }}</td>
-            <td class="text-center border px-4 py-2 font-semibold">{{ item.kelompok }}</td>
-            <td class="text-center border px-4 py-2 font-semibold">
-               <button class="bg-blue-700 py-2 px-4 text-white rounded-lg font-bold" (click)="editEmployee(item)">Edit</button>
-               <button class="bg-red-700 py-2 px-4 text-white rounded-lg font-bold ml-2"
-                  (click)="deleteEmployee(item.id)">Delete</button>
-            </td>
-         </tr>
-         </tbody>
-      </table>
-   </div>
-</div>
