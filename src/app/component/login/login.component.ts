@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private userService: UserService
+    public userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -41,6 +41,10 @@ export class LoginComponent implements OnInit {
 
         if (response.code == 200) {
           this.HomeRoute();
+          localStorage.setItem('npp', response.npp);
+          localStorage.setItem('nama', response.nama);
+          localStorage.setItem('divisi', response.divisi);
+          localStorage.setItem('kelompok', response.kelompok);
         }
       });
     } else {

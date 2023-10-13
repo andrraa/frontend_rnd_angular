@@ -6,11 +6,13 @@ import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { RegisterComponent } from './component/register/register.component';
 
+import { loginGuard } from './auth/login.guard';
+
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, canActivate: [loginGuard] },
+  { path: 'about', component: AboutComponent, canActivate: [loginGuard] },
+  { path: 'contact', component: ContactComponent, canActivate: [loginGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent }
 ];

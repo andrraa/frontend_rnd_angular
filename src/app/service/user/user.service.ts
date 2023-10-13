@@ -17,4 +17,8 @@ export class UserService {
   LoginUser(loginData: any) {
     return this.http.post('https://localhost:44352/api/User/UserLogin', loginData);
   }
+
+  isLogin() {
+    return localStorage.getItem('npp') != null;
+  }
 }

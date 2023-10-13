@@ -25,7 +25,7 @@ export class AppComponent implements DoCheck, OnInit {
   ngDoCheck(): void {
     const currentRoute = this.route.url;
 
-    if (currentRoute == '/login' || currentRoute == '/register' || currentRoute == '/') {
+    if (currentRoute == '/login' || currentRoute == '/register') {
       this.isMenuVisible = false;
     } else {
       this.isMenuVisible = true;
@@ -39,6 +39,7 @@ export class AppComponent implements DoCheck, OnInit {
   }
 
   Logout() {
+    localStorage.clear();
     this.route.navigate(['/login']);
   }
 }
