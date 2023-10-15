@@ -1,0 +1,42 @@
+<div class="card-container">
+   <kendo-card width="380px">
+      <kendo-card-header class="k-hstack">
+         <kendo-avatar width="60px" height="60px" shape="circle" [imageSrc]="imgSrc"></kendo-avatar>
+         <div>
+            <h1 kendoCardTitle>{{ loginCardTitle }}</h1>
+            <p kendoCardSubtitle> {{ loginCardSubtitle }}</p>
+         </div>
+      </kendo-card-header>
+   
+      <kendo-card-body>
+         <form class="k-form k-form-md" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+            <div class="loader-container" *ngIf="isLoading">
+               <kendo-loader [type]="loaderProperties.type" [themeColor]="loaderProperties.themeColor" [size]="loaderProperties.size"></kendo-loader>
+            </div>
+
+            <fieldset class="k-form-fieldset">
+               <kendo-formfield>
+                  <kendo-label labelCssClass="k-form-label" text="Username " [for]="username"></kendo-label>
+                  <input [readOnly]="isLoading" type="text" kendoTextBox #username formControlName="username" placeholder="Masukkan Username" autofocus autocomplete="off" [class.gray-text-input]="isLoading">
+               </kendo-formfield>
+
+               <kendo-formfield>
+                  <kendo-label labelCssClass="k-form-label" text="Password " [for]="password"></kendo-label>
+                  <input [readOnly]="isLoading" type="password" kendoTextBox #password formControlName="password" placeholder="* * * * * * * *" autocomplete="off" [class.gray-text-input]="isLoading">
+               </kendo-formfield>
+
+               <div class="k-form-buttons">
+                  <button kendoButton kendoRippleContainer themeColor="primary" type="submit" [svgIcon]="loginButtonIcon">Login</button>
+               </div>
+
+               <p class="p-separator">Belum Punya Akun? <a>Register</a></p>
+            </fieldset>
+         </form>
+      </kendo-card-body>
+   </kendo-card>
+</div>
+
+<div class="footer">
+   <p>Copyright 2023 Wholesale Enablers Delivery</p>
+</div>
