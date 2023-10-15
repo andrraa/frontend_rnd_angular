@@ -1,0 +1,83 @@
+<div class="card-container">
+   <kendo-card width="500px">
+      <kendo-card-header class="k-hstack">
+         <kendo-avatar width="60px" height="60px" shape="circle" [imageSrc]="imgSrc"></kendo-avatar>
+         <div>
+            <h1 kendoCardTitle>{{ registerCardTitle }}</h1>
+            <p kendoCardSubtitle>{{ registerCardSubtitle }}</p>
+         </div>
+      </kendo-card-header>
+
+      <kendo-card-body>
+         <form class="k-form k-form-md" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <div class="loader-container" *ngIf="isLoading">
+               <kendo-loader [type]="loaderProperties.type" [themeColor]="loaderProperties.themeColor" [size]="loaderProperties.size"></kendo-loader>
+            </div>
+
+            <fieldset class="k-form-fieldset">
+               <div class="formfield-row">
+                  <div class="formfield-column">
+                     <kendo-formfield>
+                        <kendo-label labelCssClass="k-form-label" text="Nama Lengkap" [for]="registerNamaLengkap"></kendo-label>
+                        <input type="text" kendoTextBox #registerNamaLengkap formControlName="registerNamaLengkap" placeholder="Masukkan Nama"
+                           autofocus autocomplete="off" [class.gray-text-input]="isLoading">
+                     </kendo-formfield>
+                  </div>
+                  
+                  <div class="formfield-column">
+                     <kendo-formfield>
+                        <kendo-label labelCssClass="k-form-label" text="NPP" [for]="registerNPP"></kendo-label>
+                        <kendo-numerictextbox #registerNPP formControlName="registerNPP" placeholder="Masukkan NPP" [class.gray-text-input]="isLoading" [step]="1" format="0"></kendo-numerictextbox>
+                     </kendo-formfield>
+                  </div>
+               </div>
+
+               <div class="formfield-row">
+                  <div class="formfield-column">
+                     <kendo-formfield>
+                        <kendo-label labelCssClass="k-form-label" text="Divisi" [for]="registerDivisi"></kendo-label>
+                        <input type="text" kendoTextBox #registerDivisi formControlName="registerDivisi" placeholder="Masukkan Divisi"
+                           autocomplete="off" [class.gray-text-input]="isLoading">
+                     </kendo-formfield>
+                  </div>
+                  <div class="formfield-column">
+                     <kendo-formfield>
+                        <kendo-label labelCssClass="k-form-label" text="Kelompok" [for]="registerKelompok"></kendo-label>
+                        <input type="text" kendoTextBox #registerKelompok formControlName="registerKelompok" placeholder="Masukkan Kelompok"
+                           autocomplete="off" [class.gray-text-input]="isLoading">
+                     </kendo-formfield>
+                  </div>
+               </div>
+
+               <div class="formfield-row">
+                  <div class="formfield-column">
+                     <kendo-formfield>
+                        <kendo-label labelCssClass="k-form-label" text="Username" [for]="registerUsername"></kendo-label>
+                        <input type="text" kendoTextBox #registerUsername formControlName="registerUsername" placeholder="Masukkan Username"
+                           autocomplete="off" [class.gray-text-input]="isLoading">
+                     </kendo-formfield>
+                  </div>
+                  <div class="formfield-column">
+                     <kendo-formfield>
+                        <kendo-label labelCssClass="k-form-label" text="Password" [for]="registerPassword"></kendo-label>
+                        <input type="password" kendoTextBox #registerPassword formControlName="registerPassword"
+                           placeholder="* * * * * * * *" autocomplete="off" [class.gray-text-input]="isLoading">
+                     </kendo-formfield>
+                  </div>
+               </div>
+
+               <div class="k-form-buttons">
+                  <button kendoButton kendoRippleContainer themeColor="primary" type="submit" [svgIcon]="registerButtonIcon">Register</button>
+               </div>
+               
+               <p class="p-separator">Sudah Punya Akun? <a [routerLink]="['/login']">Login</a></p>
+            </fieldset>
+         </form>
+      </kendo-card-body>
+   </kendo-card>
+</div>
+
+<div class="footer">
+   <p>Copyright 2023 Wholesale Enablers Delivery</p>
+</div>

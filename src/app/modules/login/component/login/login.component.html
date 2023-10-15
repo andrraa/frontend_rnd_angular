@@ -17,12 +17,12 @@
 
             <fieldset class="k-form-fieldset">
                <kendo-formfield>
-                  <kendo-label labelCssClass="k-form-label" text="Username " [for]="username"></kendo-label>
+                  <kendo-label labelCssClass="k-form-label" text="Username" [for]="username"></kendo-label>
                   <input [readOnly]="isLoading" type="text" kendoTextBox #username formControlName="username" placeholder="Masukkan Username" autofocus autocomplete="off" [class.gray-text-input]="isLoading">
                </kendo-formfield>
 
                <kendo-formfield>
-                  <kendo-label labelCssClass="k-form-label" text="Password " [for]="password"></kendo-label>
+                  <kendo-label labelCssClass="k-form-label" text="Password" [for]="password"></kendo-label>
                   <input [readOnly]="isLoading" type="password" kendoTextBox #password formControlName="password" placeholder="* * * * * * * *" autocomplete="off" [class.gray-text-input]="isLoading">
                </kendo-formfield>
 
@@ -30,7 +30,7 @@
                   <button kendoButton kendoRippleContainer themeColor="primary" type="submit" [svgIcon]="loginButtonIcon">Login</button>
                </div>
 
-               <p class="p-separator">Belum Punya Akun? <a>Register</a></p>
+               <p class="p-separator">Belum Punya Akun? <a [routerLink]="['/register']">Register</a></p>
             </fieldset>
          </form>
       </kendo-card-body>
