@@ -14,15 +14,15 @@
 
    <kendo-appbar-section>
       <ul>
-         <li><span>Home</span></li>
-         <li><span>Employee</span></li>
-         <li><span>Task</span></li>
+         <li [routerLink]="[('/home')]"><span>Home</span></li>
+         <li [routerLink]="[('/employee')]"><span>Employee</span></li>
+         <li [routerLink]="[('/task')]"><span>Task</span></li>
       </ul>
    </kendo-appbar-section>
 
    <kendo-appbar-spacer width="5px"></kendo-appbar-spacer>
 
    <kendo-appbar-section>
-      <kendo-button themeColor="primary" class="appbar-login-button" (click)="RouteLogin()">Login</kendo-button>
+      <kendo-button kendoRippleContainer themeColor="primary" class="appbar-login-button" (click)="RouteLogin()" [svgIcon]="buttonIcon">Login</kendo-button>
    </kendo-appbar-section>
 </kendo-appbar>

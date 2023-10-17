@@ -1,1 +1,69 @@
-<p>employee works!</p>
+<div class="container">
+   <h1>Employee Management</h1>
+   
+   <kendo-button kendoRippleContainer themeColor="primary" rounded="large" size="small" [svgIcon]="buttonIcon" (click)="openDialog()">Data Employee</kendo-button>
+</div>
+
+<div class="container" style="padding-top: 10px;">
+   <kendo-card width="100%">
+      <kendo-card-body>
+         <kendo-grid [data]="employeeData" size="small">
+            <kendo-grid-column title="No.">
+               <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                  {{ rowIndex + 1 }}
+               </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="id" title="ID Employee"></kendo-grid-column>
+            <kendo-grid-column field="nama" title="Nama"></kendo-grid-column>
+            <kendo-grid-column field="npp" title="NPP"></kendo-grid-column>
+            <kendo-grid-column field="divisi" title="Divisi"></kendo-grid-column>
+            <kendo-grid-column field="kelompok" title="Kelompok"></kendo-grid-column>
+            <kendo-grid-column title="Aksi">
+               <ng-template kendoGridCellTemplate>
+                  <div class="button-container">
+                     <kendo-button themeColor="error" size="small" [svgIcon]="buttonDeleteIcon" style="color: white;"></kendo-button>
+                     <kendo-button themeColor="primary" size="small" [svgIcon]="buttonEditIcon"></kendo-button>
+                  </div>
+               </ng-template>
+            </kendo-grid-column>
+         </kendo-grid>
+      </kendo-card-body>
+   </kendo-card>
+</div>
+
+<!-- Kendo Dialog -->
+<kendo-dialog *ngIf="isDialogOpen" title="Add Employee" (close)="closeDialog()" [minWidth]="250" [width]="450">
+   <form class="k-form k-form-md" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <div class="loader-container" *ngIf="isLoading">
+         <kendo-loader [type]="loaderProperties.type" [themeColor]="loaderProperties.themeColor"
+            [size]="loaderProperties.size"></kendo-loader>
+      </div>
+
+      <fieldset class="k-form-fieldset">
+         <kendo-formfield>
+            <kendo-label labelCssClass="k-form-label" text="Nama" [for]="employeeNama"></kendo-label>
+            <input type="text" [readOnly]="isLoading" autocomplete="off" kendoTextBox formControlName="employeeNama" placeholder="Masukkan Nama" #employeeNama [class.gray-text-input]="isLoading">
+         </kendo-formfield>
+
+         <kendo-formfield>
+            <kendo-label labelCssClass="k-form-label" text="NPP" [for]="employeeNPP"></kendo-label>
+            <input type="text" [readOnly]="isLoading" autocomplete="off" kendoTextBox formControlName="employeeNPP" placeholder="Masukkan NPP" #employeeNPP [class.gray-text-input]="isLoading">
+         </kendo-formfield>
+
+         <kendo-formfield>
+            <kendo-label labelCssClass="k-form-label" text="Divisi" [for]="employeeDivisi"></kendo-label>
+            <input type="text" [readOnly]="isLoading" autocomplete="off" kendoTextBox formControlName="employeeDivisi" placeholder="Masukkan Divisi" #employeeDivisi [class.gray-text-input]="isLoading">
+         </kendo-formfield>
+
+         <kendo-formfield>
+            <kendo-label labelCssClass="k-form-label" text="Kelompok" [for]="employeeKelompok"></kendo-label>
+            <input type="text" [readOnly]="isLoading" autocomplete="off" kendoTextBox formControlName="employeeKelompok" placeholder="Masukkan Kelompok" #employeeKelompok [class.gray-text-input]="isLoading">
+         </kendo-formfield>
+      </fieldset>
+   
+      <kendo-dialog-actions>
+         <button kendoButton kendoRippleContainer themeColor="primary" size="small" type="submit">Save</button>
+         <kendo-button (click)="closeDialog()" kendoRippleContainer size="small" themeColor="error" style="color: white;">Close</kendo-button>
+      </kendo-dialog-actions>
+   </form>
+</kendo-dialog>
