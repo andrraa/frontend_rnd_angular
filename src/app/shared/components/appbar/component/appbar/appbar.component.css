@@ -1,0 +1,26 @@
+.appbar-title {
+   font-size: 18px;
+   margin: 0;
+}
+
+.appbar-login-button {
+   text-transform: capitalize;
+   height: 35px;
+}
+
+ul {
+   font-size: 16px;
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+   display: flex;
+}
+
+li {
+   margin: 0 12px;
+}
+
+li:hover {
+   cursor: pointer;
+   color: #d6002f;
+}

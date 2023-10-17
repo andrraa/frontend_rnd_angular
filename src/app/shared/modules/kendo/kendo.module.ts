@@ -9,8 +9,9 @@ import { IconsModule } from '@progress/kendo-angular-icons';
 import { IndicatorsModule } from '@progress/kendo-angular-indicators';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LabelModule } from '@progress/kendo-angular-label';
-import { LayoutModule } from '@progress/kendo-angular-layout';
+import { LayoutModule, DrawerModule } from '@progress/kendo-angular-layout';
 import { MenuModule } from '@progress/kendo-angular-menu';
+import { NavigationModule } from '@progress/kendo-angular-navigation';
 import { NotificationModule } from '@progress/kendo-angular-notification';
 import { PagerModule } from '@progress/kendo-angular-pager';
 import { PopupModule } from '@progress/kendo-angular-popup';
@@ -22,11 +23,13 @@ import { UploadsModule } from '@progress/kendo-angular-upload';
 @NgModule({
    imports: [
       ButtonsModule,
+      DrawerModule,
       InputsModule,
       LabelModule,
       DialogsModule,
       DateInputsModule,
       LayoutModule,
+      NavigationModule,
       NotificationModule,
       PagerModule,
       PopupModule,
@@ -42,11 +45,13 @@ import { UploadsModule } from '@progress/kendo-angular-upload';
    ],
    exports: [
       ButtonsModule,
+      DrawerModule,
       InputsModule,
       LabelModule,
       DialogsModule,
       DateInputsModule,
       LayoutModule,
+      NavigationModule,
       NotificationModule,
       PagerModule,
       PopupModule,

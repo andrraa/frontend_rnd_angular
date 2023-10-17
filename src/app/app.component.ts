@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,19 @@ import { Title } from '@angular/platform-browser';
 export class AppComponent implements OnInit {
   title = 'Wholesale Employee';
 
-  constructor(private setTitle: Title) { }
+  // Hide Appbar in Login & Register Page
+  isAuthPage = false;
+
+  constructor(
+    private setTitle: Title,
+    private router: Router
+  ) {
+    router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.isAuthPage = event.url == '/login' || event.url == '/register';
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.setTitle.setTitle(this.title);

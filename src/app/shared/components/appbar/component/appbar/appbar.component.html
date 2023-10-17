@@ -1,0 +1,28 @@
+<!-- navbar  -->
+<kendo-appbar>
+   <kendo-appbar-section>
+      <kendo-avatar shape="circle" width="30px" height="30px" [imageSrc]="appbarImg"></kendo-avatar>
+   </kendo-appbar-section>
+
+   <span class="k-appbar-separator"></span>
+
+   <kendo-appbar-section>
+      <h1 class="appbar-title">Wholesale Disco</h1>
+   </kendo-appbar-section>
+
+   <kendo-appbar-spacer></kendo-appbar-spacer>
+
+   <kendo-appbar-section>
+      <ul>
+         <li><span>Home</span></li>
+         <li><span>Employee</span></li>
+         <li><span>Task</span></li>
+      </ul>
+   </kendo-appbar-section>
+
+   <kendo-appbar-spacer width="5px"></kendo-appbar-spacer>
+
+   <kendo-appbar-section>
+      <kendo-button themeColor="primary" class="appbar-login-button" (click)="RouteLogin()">Login</kendo-button>
+   </kendo-appbar-section>
+</kendo-appbar>

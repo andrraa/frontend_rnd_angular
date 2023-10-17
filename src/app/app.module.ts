@@ -5,25 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { LayoutModule } from "@progress/kendo-angular-layout";
 
-import { AppbarComponent } from './shared/components/appbar/appbar/appbar.component';
-
+import { AppbarModule } from './shared/components/appbar/appbar.module';
 import { HomeModule } from './modules/home/home.module';
 import { LoginModule } from './modules/login/login.module';
 import { RegisterModule } from './modules/register/register.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AppbarComponent
+    AppComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    AppbarModule,
     HomeModule,
     LoginModule,
-    RegisterModule
+    RegisterModule,
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
