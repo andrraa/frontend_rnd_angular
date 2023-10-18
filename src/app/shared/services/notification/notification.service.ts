@@ -14,7 +14,7 @@ export class NotificationsService {
       cssClass: 'button-notification custom-notification',
       animation: {
         type: 'fade',
-        duration: 500
+        duration: 300
       },
       position: {
         horizontal: "right",
