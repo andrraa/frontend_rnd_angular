@@ -17,3 +17,15 @@ body {
 .k-button-error {
    color: #FFFFFF;
 }
+
+.k-notification-content {
+   color: white;
+}
+
+.button-notification .k-icon {
+   color: white;
+}
+
+.button-notification {
+   margin-right: 10px;
+}

@@ -14,25 +14,3 @@
    display: flex;
    gap: 10px;
 }
-
-.loader-container {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-
-.gray-text-input {
-   color: gray;
-}
-
-.k-notification-content {
-   color: white;
-}
-
-.button-notification .k-icon {
-   color: white;
-}
-
-.button-notification {
-   margin-right: 10px;
-}

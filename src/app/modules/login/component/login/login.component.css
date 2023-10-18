@@ -56,32 +56,10 @@ button {
    height: 35px;
 }
 
-.k-notification-content {
-   color: white;
-}
-
-.button-notification .k-icon {
-   color: white;
-}
-
-.loader-container {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-
 .footer {
    display: flex;
    justify-content: center;
    align-items: center;
-}
-
-.button-notification {
-   margin-right: 10px;
-}
-
-.gray-text-input {
-   color: gray;
 }
 
 @media screen and (max-width: 480px) {
