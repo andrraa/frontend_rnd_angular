@@ -9,7 +9,7 @@
       <kendo-card-body>
          <kendo-grid [data]="employeeData" size="small">
             <kendo-grid-column title="No.">
-               <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+               <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
                   {{ rowIndex + 1 }}
                </ng-template>
             </kendo-grid-column>
@@ -19,9 +19,9 @@
             <kendo-grid-column field="divisi" title="Divisi"></kendo-grid-column>
             <kendo-grid-column field="kelompok" title="Kelompok"></kendo-grid-column>
             <kendo-grid-column title="Aksi">
-               <ng-template kendoGridCellTemplate>
+               <ng-template kendoGridCellTemplate let-dataItem>
                   <div class="button-container">
-                     <kendo-button themeColor="error" size="small" [svgIcon]="buttonDeleteIcon" style="color: white;"></kendo-button>
+                     <kendo-button themeColor="error" size="small" [svgIcon]="buttonDeleteIcon" style="color: white;" (click)="deleteEmployee(dataItem.id)"></kendo-button>
                      <kendo-button themeColor="primary" size="small" [svgIcon]="buttonEditIcon"></kendo-button>
                   </div>
                </ng-template>

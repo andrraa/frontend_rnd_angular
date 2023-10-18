@@ -57,8 +57,8 @@ export class EmployeeComponent implements OnInit {
     });
   }
 
-  deleteItem(dataItem: any) {
-
+  deleteEmployee(employeeId: any) {
+    console.log(employeeId);
   }
 
   editItem(dataItem: any) {
