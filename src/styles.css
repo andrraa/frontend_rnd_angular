@@ -3,3 +3,17 @@
 body {
    font-family: 'Lato', sans-serif;
 }
+
+.loader-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.gray-text-input {
+   color: gray;
+}
+
+.k-button-error {
+   color: #FFFFFF;
+}

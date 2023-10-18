@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { LoginData, LoginResponse } from '../model/login.model';
+import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +13,7 @@ export class LoginService {
     private http: HttpClient
   ) { }
 
-  loginUser(loginData: any) {
-    return this.http.post('https://localhost:44352/api/User/UserLogin', loginData);
+  loginUser(loginData: LoginData): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>('https://dev.lms.digi46.id/Template_Identity/api/Auth/Login', loginData);
   }
 }

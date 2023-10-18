@@ -9,7 +9,7 @@
 }
 
 ul {
-   font-size: 16px;
+   font-size: 14px;
    list-style-type: none;
    padding: 0;
    margin: 0;
@@ -17,10 +17,14 @@ ul {
 }
 
 li {
-   margin: 0 12px;
+   margin: 0 9px;
 }
 
 li:hover {
    cursor: pointer;
    color: #d6002f;
+}
+
+.k-button {
+   text-transform: capitalize;
 }

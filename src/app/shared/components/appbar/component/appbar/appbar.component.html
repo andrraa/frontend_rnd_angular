@@ -1,4 +1,4 @@
-<!-- navbar  -->
+<!-- Navbar / Appbar -->
 <kendo-appbar>
    <kendo-appbar-section>
       <kendo-avatar shape="circle" width="30px" height="30px" [imageSrc]="appbarImg"></kendo-avatar>
@@ -15,14 +15,27 @@
    <kendo-appbar-section>
       <ul>
          <li [routerLink]="[('/home')]"><span>Home</span></li>
-         <li [routerLink]="[('/employee')]"><span>Employee</span></li>
-         <li [routerLink]="[('/task')]"><span>Task</span></li>
       </ul>
    </kendo-appbar-section>
 
    <kendo-appbar-spacer width="5px"></kendo-appbar-spacer>
 
    <kendo-appbar-section>
-      <kendo-button kendoRippleContainer themeColor="primary" class="appbar-login-button" (click)="RouteLogin()" [svgIcon]="buttonIcon">Login</kendo-button>
+      <kendo-button kendoRippleContainer themeColor="error" class="appbar-login-button k-button-error" (click)="openLogoutDialog()" [svgIcon]="appbarLogoutIcon">Logout</kendo-button>
    </kendo-appbar-section>
 </kendo-appbar>
+
+<!-- Logout Dialog -->
+<kendo-dialog title="Pemberitahuan" [minWidth]="150" [width]="350" *ngIf="isDialogOpen" (close)="isLoading ? preventCloseDialog() : closeLogoutDialog()">
+   <div class="loader-container" *ngIf="isLoading">
+      <kendo-loader [type]="loaderProperties.type" [themeColor]="loaderProperties.themeColor"
+         [size]="loaderProperties.size"></kendo-loader>
+   </div>
+
+   <p style="margin: 30px; text-align: center;" [class.gray-text-input]="isLoading">Apakah Yakin Ingin Keluar?</p>
+
+   <kendo-dialog-actions>
+      <button [disabled]="isLoading" kendoRippleContainer kendoButton class="k-button-error" size="small" (click)="logoutAccount()" themeColor="error">Logout</button>
+      <button [disabled]="isLoading" kendoRippleContainer kendoButton size="small" (click)="closeLogoutDialog()" style="color: black;">Batal</button>
+   </kendo-dialog-actions>
+</kendo-dialog>
